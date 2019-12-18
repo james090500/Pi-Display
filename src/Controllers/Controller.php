@@ -35,17 +35,6 @@
     }
 
     /**
-     * Makes the render function a little less repative
-     * @param  Response $response The Response
-     * @param  String $page       The .twig in /Pages/
-     * @param  array  $args       Optional args
-     * @return Twig               The rendered response
-     */
-    public static function render($response, $page, $args = []) {
-      return self::getView()->render($response, "Pages/$page.twig", $args);
-    }    
-
-    /**
      * Shows the error page
      * @param  Response $response The Response Object
      * @param  String $title    The title of the error page

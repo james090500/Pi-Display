@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0cf6f5e2c5f92e3700d66c574552db8",
+    "content-hash": "ca4393f1d0cdc72f214d8415dfebc112",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -469,56 +469,6 @@
                 "type"
             ],
             "time": "2019-12-15T19:35:24+00:00"
-        },
-        {
-            "name": "pimple/pimple",
-            "version": "v3.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/9e403941ef9d65d20cba7d54e29fe906db42cf32",
-                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "psr/container": "^1.0"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^3.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Pimple": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Pimple, a simple Dependency Injection Container",
-            "homepage": "http://pimple.sensiolabs.org",
-            "keywords": [
-                "container",
-                "dependency injection"
-            ],
-            "time": "2018-01-21T07:42:36+00:00"
         },
         {
             "name": "psr/container",
