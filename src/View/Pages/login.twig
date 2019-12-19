@@ -8,7 +8,12 @@
       <h1 class="text-center">Login</h1>
       <small class="text-center d-block">{{host}}</small>
       <hr />
-      <form>
+      {% if alert %}
+        <div class="alert alert-{{alert.type}}">
+          {{ alert.msg }}
+        </div>
+      {% endif %}
+      <form method="post">
         <div class="form-group">
           <label>Username</label>
           <input type="text" class="form-control" name="username">

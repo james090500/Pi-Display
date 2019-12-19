@@ -35,18 +35,38 @@
     }
 
     /**
-     * Shows the error page
-     * @param  Response $response The Response Object
-     * @param  String $title    The title of the error page
-     * @param  String $content  The description of the error page
-     * @return Twig The Error page
+     * Shows a modal on a page
+     * @param  Response $response The Response
+     * @param  String $page       The .twig in /Pages/
+     * @param  array  $args       Optional args
+     * @param  String $title      The title of the modal
+     * @param  String $content    The description of the modal
+     * @return Twig               The Error page
      */
-    public static function doError($response, $title, $content) {
-      return self::getView()->render($response, 'Pages/admin/error.twig', [
-        'error' => [
-          'title' => $title,
-          'msg' => $content
-        ]
-      ]);
+    public static function renderModal($response, $page, $title, $content, $args = []) {
+      $args['modal'] = [
+        'title' => $title,
+        'msg' => $content
+      ];
+
+      return self::getView()->render($response, "Pages/$page.twig", $args);
+    }
+
+    /**
+     * Shows an alert on a page
+     * @param  Response $response The Response
+     * @param  String $page       The .twig in /Pages/
+     * @param  array  $args       Optional args
+     * @param  String $type       The type of the alert
+     * @param  String $content    The content of the alert
+     * @return Twig               The Error page
+     */
+    public static function renderAlert($response, $page, $type, $content, $args = []) {
+      $args['alert'] = [
+        'type' => $type,
+        'msg' => $content
+      ];
+
+      return self::getView()->render($response, "Pages/$page.twig", $args);
     }
   }
