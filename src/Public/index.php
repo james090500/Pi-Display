@@ -68,7 +68,8 @@
       $app->add($app->addErrorMiddleware(true, true, true));
       //If member session exists sign in
       if(isset($_SESSION['MEMBER'])) {
-        $view->getEnvironment()->addGlobal('user', $_SESSION['MEMBER']);
+        $app->getContainer()->get('view')->getEnvironment()->addGlobal('user', $_SESSION['MEMBER']);
+        $app->getContainer()->get('view')->getEnvironment()->addGlobal('host', gethostname());
       }
       //Start an instance of controller and routing
       Controller::createInstance($app);

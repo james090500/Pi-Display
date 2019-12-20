@@ -2,5 +2,53 @@
 {% set title = "Home" %}
 {% set css = "home.css" %}
 {% block body %}
-<h1>Welcome {{user.name}}</h1>
+<div class="row justify-content-center mid w-100">
+  <div class="col-8">
+    <div class="box m-auto">
+      <h1>{{host}}</h1>
+      <hr />
+      {% if alert %}
+        <div class="alert alert-{{alert.type}}">
+          {{ alert.msg }}
+        </div>
+      {% endif %}
+      <p>Please choose a presentation to upload to {{host}}</p>
+      <form method="POST" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-sm-3">
+            <input class="form-control" type="text" id="file_name" disabled>
+          </div>
+          <div class="col-sm-2 text-center">
+            <label class="btn btn-info  btn-block"><input type="file" name="pptxFile" style="display:none;" accept=".pptx" onchange="$('#file_name').val(this.value.split('\\').pop().split('/').pop())"><i class="fas fa-search"></i> Choose File</label>
+          </div>
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-success btn-block"><i class="fas fa-upload"></i> Upload</button>
+          </div>
+        </div>
+      </form>
+      <hr />
+      <div class="text-right">
+        <small class="ml-auto">Created by James Harrison at <a href="https://system3.co.uk">System3</a> {{"now"|date('Y')}}</small>
+      </div>
+    </div>
+  </div>
+</div>
+{% if modal %}
+<div class="modal fade" data-backdrop="static" id="rebootModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">File Uploaded!</h5>
+      </div>
+      <div class="modal-body">
+        <p>The PowerPoint has been uploaded! {{host}} is now Rebooting, please wait up to 30 seconds.</p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="progressBar" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/js/home.js"></script>
+{% endif %}
 {% endblock %}

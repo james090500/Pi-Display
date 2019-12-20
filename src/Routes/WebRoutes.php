@@ -14,6 +14,7 @@
       $app->group('/', function($group) {
 
         $group->get('', [ HomeController::class, 'getHome' ]);
+        $group->post('', [ HomeController::class, 'doHome' ]);
 
       })->add(function($request, $handler) use ($app) {
         $response = $handler->handle($request);

@@ -15,9 +15,7 @@
      * @return Twig               The view
      */
     public static function getLogin($request, $response, $args) {
-      return self::render($response, 'login', [
-        'host' => gethostname()
-      ]);
+      return self::render($response, 'login');
     }
 
     /**
