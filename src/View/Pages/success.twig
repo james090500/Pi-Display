@@ -1,0 +1,18 @@
+{% extends "Templates/layout.twig" %}
+{% set title = "Home" %}
+{% set css = "home.css" %}
+{% block body %}
+<div class="row justify-content-center mid w-100">
+  <div class="col-3">
+    <div class="box m-auto py-5">
+      <h1 class="text-center"><i class="fas fa-sync fa-spin"></i></h1>
+      <hr />
+      <p>The PowerPoint has been uploaded! {{host}} is now Rebooting, please wait up to 60 seconds.</p>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="progressBar" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/js/success.js"></script>
+{% endblock %}

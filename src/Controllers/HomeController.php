@@ -18,6 +18,17 @@
     }
 
     /**
+     * Shows the success page
+     * @param  Request  $request  The request
+     * @param  Response $response The response
+     * @param  Array    $args     Args for the page if any
+     * @return Twig               The view
+     */
+    public static function getSuccess($request, $response, $args) {
+      return self::render($response, 'success');
+    }
+
+    /**
      * Upload the PPTX from the home page
      * @param  Request  $request  The request
      * @param  Response $response The response
@@ -30,7 +41,7 @@
       if(isset($uploadedFile['pptxFile'])) {
         $uploadedFile['pptxFile']->moveTo($directory . DIRECTORY_SEPARATOR  . 'live.pptx');
         shell_exec(" ( sleep 5 ; sudo reboot ) > /dev/null 2>/dev/null &");
-        return self::renderModal($response, 'home', 'success', 'Rebooting...');
+        return $response->withHeader('Location', '/success')->withStatus(302);
       } else {
         return self::renderAlert($response, 'home', 'danger', 'Please select a file');
       }

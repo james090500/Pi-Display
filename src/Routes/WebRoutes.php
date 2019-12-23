@@ -20,5 +20,7 @@
         $response = $handler->handle($request);
         return (isset($_SESSION['MEMBER'])) ? $response : $response->withHeader('Location', '/login')->withStatus(302);
       });
+
+      $app->get('/success', [ HomeController::class, 'getSuccess' ]);
     }
   }
