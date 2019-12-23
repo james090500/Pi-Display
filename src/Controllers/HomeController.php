@@ -36,10 +36,10 @@
      * @return Twig               The view
      */
     public static function doHome($request, $response, $args) {
-      $directory = __DIR__ . '/../Public/pptx/';
+      $directory = __DIR__ . '/../Public/pres/';
       $uploadedFile = $request->getUploadedFiles();
-      if(isset($uploadedFile['pptxFile'])) {
-        $uploadedFile['pptxFile']->moveTo($directory . DIRECTORY_SEPARATOR  . 'live.pptx');
+      if(isset($uploadedFile['presFile'])) {
+        $uploadedFile['presFile']->moveTo($directory . DIRECTORY_SEPARATOR  . 'live.odp');
         shell_exec(" ( sleep 5 ; sudo reboot ) > /dev/null 2>/dev/null &");
         return $response->withHeader('Location', '/success')->withStatus(302);
       } else {
