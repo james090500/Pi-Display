@@ -29,8 +29,7 @@
       $uploadedFile = $request->getUploadedFiles();
       if(isset($uploadedFile['pptxFile'])) {
         $uploadedFile['pptxFile']->moveTo($directory . DIRECTORY_SEPARATOR  . 'live.pptx');
-        #exec("pkill soffice.bin");
-        exec("nohup soffice --norestore --view --nologo --display :0 --show /var/www/Public/pptx/live.pptx")        
+        shell_exec(" ( sleep 5 ; sudo reboot ) > /dev/null 2>/dev/null &");
         return self::renderModal($response, 'home', 'success', 'Rebooting...');
       } else {
         return self::renderAlert($response, 'home', 'danger', 'Please select a file');
