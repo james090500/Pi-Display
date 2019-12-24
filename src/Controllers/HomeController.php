@@ -82,8 +82,8 @@
         self::rrmdir($tmpDir);
 
         //Reboot the system
-        if(!getenv('DEV_MODE')) {
-          shell_exec(" ( sleep 5 ; sudo reboot ) > /dev/null 2>/dev/null &");
+        if(DEVELOPMENT_MODE) {
+          shell_exec("( sleep 5 ; sudo reboot ) > /dev/null 2>/dev/null &");
         }
         return $response->withHeader('Location', '/success')->withStatus(302);
       } else {
