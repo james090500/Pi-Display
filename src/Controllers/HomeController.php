@@ -79,12 +79,12 @@
         $zip->close();
 
         //Remove all files and folders
-        rrmdir($tmp);
+        self::rrmdir($tmpDir);
 
         //Reboot the system
         if(!getenv('DEV_MODE')) {
           shell_exec(" ( sleep 5 ; sudo reboot ) > /dev/null 2>/dev/null &");
-        }        
+        }
         return $response->withHeader('Location', '/success')->withStatus(302);
       } else {
         return self::renderAlert($response, 'home', 'danger', 'Please select a file');
@@ -102,7 +102,7 @@
         foreach ($objects as $object) {
           if ($object != "." && $object != "..") {
             if (is_dir($dir."/".$object) && !is_link($dir."/".$object))
-              rrmdir($dir."/".$object);
+              self::rrmdir($dir."/".$object);
             else
               unlink($dir."/".$object);
           }
