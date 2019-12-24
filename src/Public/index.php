@@ -61,7 +61,7 @@
       AppFactory::setContainer($container);
       // Set view in Container
       $container->set('view', function() {
-          return new Twig('../View', [ 'cache' => (DEVELOPMENT_MODE) ? false : '../View/Cache' ]);
+          return new Twig('../View');
       });
       //Create App
       $app = AppFactory::create();
