@@ -42,7 +42,7 @@
       $directory = realpath(__DIR__ . '/../Public/pres/');
       $uploadedFile = $request->getUploadedFiles();
       if(isset($uploadedFile['presFile'])) {
-        $tmpDir = realpath($directory . '/tmp/');
+        $tmpDir = $directory . '/tmp';
         $presFile = $directory . '/live.odp';
         $uploadedFile['presFile']->moveTo($presFile);
 
