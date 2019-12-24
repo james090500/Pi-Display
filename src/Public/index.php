@@ -44,7 +44,9 @@
       $class = str_replace("PiDisplay\\", "", $class);
       $class = str_replace("\\", "/", $class);
       $class = "../".$class.".php";
-      require_once($class);
+      if(file_exists($class)) {
+        require($class);
+      }
     }
 
     /**
