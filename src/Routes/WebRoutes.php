@@ -16,6 +16,8 @@
         $group->get('', [ HomeController::class, 'getHome' ]);
         $group->post('', [ HomeController::class, 'doHome' ]);
 
+        $group->get('reboot', [ HomeController::class, 'doReboot' ]);
+
       })->add(function($request, $handler) use ($app) {
         $response = $handler->handle($request);
         return (isset($_SESSION['MEMBER'])) ? $response : $response->withHeader('Location', '/login')->withStatus(302);

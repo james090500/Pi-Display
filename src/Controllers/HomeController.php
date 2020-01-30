@@ -92,6 +92,18 @@
     }
 
     /**
+     * Forces a reboot of the system
+     * @param  Request  $request  The request
+     * @param  Response $response The response
+     * @param  Array    $args     Args for the page if any
+     * @return Twig               The view
+     */
+    public static function doReboot($request, $response, $args) {
+      shell_exec("( sleep 5 ; sudo reboot ) > /dev/null 2>/dev/null &");
+      return $response->withHeader('Location', '/success')->withStatus(302);
+    }
+
+    /**
      * Recursively deletes a folder and files
      * @param  String $dir Folder location
      * @return Boolean     Whether folder was deleted
